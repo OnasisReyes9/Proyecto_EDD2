@@ -2548,5 +2548,5 @@ public class Principal extends javax.swing.JFrame {
 
     //int menor = 0;//no lo ocupo por lo menos hasta insertar registros
     //int mayor = 10;//no lo ocupo por lo menos hasta insertar registros
-    //Adminarboles arboles = new Adminarboles("./Arboles.txt");//el archivo que guarda todos los arboles
+    Adminarboles arboles = new Adminarboles("./Arboles.txt");//el archivo que guarda todos los arboles
 }
