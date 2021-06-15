@@ -1989,7 +1989,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void btn_buscarlcdsmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarlcdsmActionPerformed
         // TODO add your handling code here:
-        /*if (jTf_buscarRegistros.getText().equals("") || jCb_llavesBuscarregistros.getSelectedItem() == null) {
+        if (jTf_buscarRegistros.getText().equals("") || jCb_llavesBuscarregistros.getSelectedItem() == null) {
             return;
         }
         boolean arbolcreado = false;//verifica si el arbol esta creado
@@ -2003,13 +2003,13 @@ public class Principal extends javax.swing.JFrame {
             }
         }
         if (arbolcreado == true) {
-            Object Item = cb_buscar_registro.getSelectedItem();
+            Object Item = jCb_llavesBuscarregistros.getSelectedItem();
 //        int pos = ((itemcombo)Item).getPos();
-            DefaultTableModel model = (DefaultTableModel) Tabla_buscarregistro.getModel();
+            DefaultTableModel model = (DefaultTableModel) jTbl_buscarRegistros.getModel();
             model.getDataVector().removeAllElements();
-            if (true || cb_buscar_registro.getSelectedIndex() == 0) {
+            if (true || jCb_llavesBuscarregistros.getSelectedIndex() == 0) {
                 int pk = 0;
-                String llave = tf_buscarregistro.getText();
+                String llave = jTf_buscarRegistros.getText();
                 int llaveprimaria = 0;
                 for (int i = 0; i < archivo_actual.getCampos().size(); i++) {
                     if (archivo_actual.getCampos().get(i).isLlavePrimaria()) {
@@ -2051,18 +2051,18 @@ public class Principal extends javax.swing.JFrame {
                     }
                 }
                 System.out.println("esta es la llave que se envia" + llave);
-                rrnsbuscar = new ArrayList<Long>();
-                arbol_actual.searchByAffinity(arbol_actual.getRaiz(), llave, rrnsbuscar);//searchbyaffinity lo que hace es devolver el rrn de la llave que buscamos
+                lista_rrn_buscar = new ArrayList<Long>();
+                arbol_actual.searchByAffinity(arbol_actual.getRaiz(), llave, rrn_buscar);//searchbyaffinity lo que hace es devolver el rrn de la llave que buscamos
 
-                if (rrnsbuscar.size() == 0) {
+                if (lista_rrn_buscar.size() == 0) {
                     JOptionPane.showMessageDialog(null, "No se encontro ningun registro con ese valor");
-                    tf_buscarregistro.setText("");
+                    jTf_buscarRegistros.setText("");
                     return;
                 }
-                for (long l : rrnsbuscar) {
-                    rrnabuscar = Math.toIntExact(l);//al rrn se le asigan el valor que el rrn le ha enviado
+                for (long l : lista_rrn_buscar) {
+                    rrn_buscar = Math.toIntExact(l);//al rrn se le asigan el valor que el rrn le ha enviado
                     try {
-                        String data = leerregistro(Math.toIntExact(rrnabuscar));
+                        String data = leerregistro(Math.toIntExact(rrn_buscar));
                         System.out.println(data);
                         String arr[] = data.split("\\|");
                         Object arr2[] = new Object[model.getColumnCount()];
