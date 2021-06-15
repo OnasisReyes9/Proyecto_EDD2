@@ -1347,39 +1347,43 @@ public class Principal extends javax.swing.JFrame {
 
     private void BTN_SalvarArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_SalvarArchivoActionPerformed
         // ACTUALIZA EL TEXT AREA QUE MUESTRA EL ARCHIVO
-        try {
-            // Actualiza el text area
-            FileReader fr = null;
-            BufferedReader br = null;
-            fr = new FileReader(archivo_actual.getArchivo());
-            br = new BufferedReader(fr);
-            TA_ArchivoAbierto.setText("");
-            String linea;
-            while ((linea = br.readLine()) != null) {
-                TA_ArchivoAbierto.append(linea);
-            } // Fin While
+        if (!registro_añadido) {
             try {
-                br.close();
-                fr.close();
+                // Actualiza el text area
+                FileReader fr = null;
+                BufferedReader br = null;
+                fr = new FileReader(archivo_actual.getArchivo());
+                br = new BufferedReader(fr);
+                TA_ArchivoAbierto.setText("");
+                String linea;
+                while ((linea = br.readLine()) != null) {
+                    TA_ArchivoAbierto.append(linea);
+                } // Fin While
+                try {
+                    br.close();
+                    fr.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } // Fin Try Catch
+                // Actualiza el file dentro del archivo binario
+                EscribirCamposBinario();
+                formatear_CBbox_Modificar();
+                formatear_CBbox_borrar();
+                listar_campos();
+                System.out.println("se_creo:" + se_creo + "se_borro: " + se_borro + "se_modifico: " + se_modifico);
+                if (se_creo == true || se_modifico == true || se_borro == true) {
+                    JOptionPane.showMessageDialog(null, "Archivo Salvado Exitosamente");
+                }
+                se_creo = false;
+                se_modifico = false;
+                se_borro = false;
+                no_salvado = false;
             } catch (Exception e) {
                 e.printStackTrace();
             } // Fin Try Catch
-            // Actualiza el file dentro del archivo binario
-            EscribirCamposBinario();
-            formatear_CBbox_Modificar();
-            formatear_CBbox_borrar();
-            listar_campos();
-            System.out.println("se_creo:" + se_creo + "se_borro: " + se_borro + "se_modifico: " + se_modifico);
-            if (se_creo == true || se_modifico == true || se_borro == true) {
-                JOptionPane.showMessageDialog(null, "Archivo Salvado Exitosamente");
-            }
-            se_creo = false;
-            se_modifico = false;
-            se_borro = false;
-            no_salvado = false;
-        } catch (Exception e) {
-            e.printStackTrace();
-        } // Fin Try Catch
+        } else {
+            JOptionPane.showMessageDialog(this, "No hay nada que se necesite salvar.");
+        }
     }//GEN-LAST:event_BTN_SalvarArchivoActionPerformed
 
     private void BTN_CerrarArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_CerrarArchivoActionPerformed
@@ -1910,7 +1914,7 @@ public class Principal extends javax.swing.JFrame {
         for (int i = 0; i < modeloTabla.getRowCount(); i++) {
             guardar = "\n";
             for (int j = 0; j < modeloTabla.getColumnCount(); j++) {
-                guardar += modeloTabla.getValueAt(i, j).toString() + "|"; // "|"
+                guardar += modeloTabla.getValueAt(i, j).toString() + "|";
             }//fin for j
             guardar += espacios_rellenar(guardar.length());
             int llavePrimaria = archivo_actual.ubicacion_llavePrimaria(0, -1);
@@ -2052,14 +2056,14 @@ public class Principal extends javax.swing.JFrame {
                 }
                 System.out.println("esta es la llave que se envia" + llave);
                 lista_rrn_buscar = new ArrayList<Long>();
-                arbol_actual.searchByAffinity(arbol_actual.getRaiz(), llave, rrn_buscar);//searchbyaffinity lo que hace es devolver el rrn de la llave que buscamos
+                arbol_actual.searchByAffinity(arbol_actual.getRaiz(), llave, lista_rrn_buscar);//searchbyaffinity lo que hace es devolver el rrn de la llave que buscamos
 
                 if (lista_rrn_buscar.size() == 0) {
                     JOptionPane.showMessageDialog(null, "No se encontro ningun registro con ese valor");
                     jTf_buscarRegistros.setText("");
                     return;
                 }
-                for (long l : lista_rrn_buscar) {
+                for (long l : lista_rrn_buscar) {//
                     rrn_buscar = Math.toIntExact(l);//al rrn se le asigan el valor que el rrn le ha enviado
                     try {
                         String data = leerregistro(Math.toIntExact(rrn_buscar));
@@ -2081,6 +2085,23 @@ public class Principal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No se puede buscar porque no existen registros creados");
         }//*/
     }//GEN-LAST:event_btn_buscarlcdsmActionPerformed
+
+    private String leerregistro(int RRN) throws FileNotFoundException, IOException {
+        System.out.println("aqui esta el RRN: " + RRN);
+        //preferiblemente no tocar esta parte del cdigo a menos que les de fallos contactar al administrador
+        File archivo = new File(path_archivo_actual);//esto lo que hace es asegurarse de leer el archivo correcto
+        //lo de arrriba
+        FileReader fr = new FileReader(archivo);
+        String x = "";
+        RandomAccessFile af = new RandomAccessFile(archivo, "r");
+        af.seek(RRN);//aqui es donde se se mueve de bytes para buscar la llave
+        //    int rrn = RRN + archivo_actual.sizeMetadata(path_archivo_actual);
+        //  System.out.println("y este es el rrrn donde lee " + rrn);
+        x = af.readLine();//esto lee la linea donde se quedo el puntero
+        af.close();
+        fr.close();
+        return x;
+    }
 
     private void btn_salirCrearRegistrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirCrearRegistrosActionPerformed
         // TODO add your handling code here:
