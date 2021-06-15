@@ -120,12 +120,23 @@ public class Principal extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btn_crearRegistros = new javax.swing.JButton();
         btn_buscarRegistros = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        JL_32 = new javax.swing.JLabel();
+        JL_33 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jD_crearRegistros = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTbl_tablaRegistros = new javax.swing.JTable();
         btn_crearRegistrosDefinitivos = new javax.swing.JButton();
         btn_salirCrearRegistros = new javax.swing.JButton();
+        JL_25 = new javax.swing.JLabel();
+        JL_26 = new javax.swing.JLabel();
+        JL_27 = new javax.swing.JLabel();
+        JL_28 = new javax.swing.JLabel();
         jD_buscarRegistros = new javax.swing.JDialog();
         jPanel7 = new javax.swing.JPanel();
         btn_buscarlcdsm = new javax.swing.JButton();
@@ -134,6 +145,9 @@ public class Principal extends javax.swing.JFrame {
         jTbl_buscarRegistros = new javax.swing.JTable();
         btn_regresarRegistrosPrincipal = new javax.swing.JButton();
         jCb_llavesBuscarregistros = new javax.swing.JComboBox<>();
+        JL_29 = new javax.swing.JLabel();
+        JL_30 = new javax.swing.JLabel();
+        JL_31 = new javax.swing.JLabel();
         PanelPrincipal = new javax.swing.JPanel();
         JL_1 = new javax.swing.JLabel();
         BTN_SalirPrograma = new javax.swing.JButton();
@@ -767,41 +781,106 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jD_Registros.setTitle("Menú Registros");
 
-        btn_crearRegistros.setText("Crear Registros");
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        btn_crearRegistros.setBackground(new java.awt.Color(255, 51, 0));
+        btn_crearRegistros.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_crearRegistros.setForeground(new java.awt.Color(255, 255, 255));
+        btn_crearRegistros.setText("Crear Registro");
+        btn_crearRegistros.setBorder(null);
         btn_crearRegistros.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_crearRegistrosMouseClicked(evt);
             }
         });
 
-        btn_buscarRegistros.setText("Buscar Registros");
+        btn_buscarRegistros.setBackground(new java.awt.Color(255, 51, 0));
+        btn_buscarRegistros.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_buscarRegistros.setForeground(new java.awt.Color(255, 255, 255));
+        btn_buscarRegistros.setText("Buscar Registro");
+        btn_buscarRegistros.setBorder(null);
         btn_buscarRegistros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_buscarRegistrosActionPerformed(evt);
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Menú Registros");
+
+        JL_32.setForeground(new java.awt.Color(204, 204, 204));
+        JL_32.setText("____________________________________________________________________");
+
+        JL_33.setForeground(new java.awt.Color(204, 204, 204));
+        JL_33.setText("____________________________________________________________________");
+
+        jButton2.setBackground(new java.awt.Color(255, 51, 0));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Modificar Registro");
+        jButton2.setBorder(null);
+
+        jButton3.setBackground(new java.awt.Color(255, 51, 0));
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("Borrar Registro");
+
+        jButton4.setBackground(new java.awt.Color(255, 51, 0));
+        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setText("Listar Registros");
+
+        jButton5.setBackground(new java.awt.Color(255, 51, 0));
+        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setText("Cruzar Archivos");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(101, 101, 101)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JL_32)
+                    .addComponent(JL_33))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_crearRegistros, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
                     .addComponent(btn_buscarRegistros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_crearRegistros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(118, Short.MAX_VALUE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(116, Short.MAX_VALUE)
-                .addComponent(btn_crearRegistros)
+                .addGap(11, 11, 11)
+                .addComponent(jLabel1)
+                .addGap(0, 0, 0)
+                .addComponent(JL_32)
+                .addGap(20, 20, 20)
+                .addComponent(btn_crearRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(btn_buscarRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btn_buscarRegistros)
-                .addGap(107, 107, 107))
+                .addComponent(JL_33)
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jD_RegistrosLayout = new javax.swing.GroupLayout(jD_Registros.getContentPane());
@@ -815,8 +894,11 @@ public class Principal extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel4.setBackground(new java.awt.Color(204, 204, 255));
+        jD_crearRegistros.setTitle("Añadir Registro");
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTbl_tablaRegistros.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTbl_tablaRegistros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -827,44 +909,82 @@ public class Principal extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(jTbl_tablaRegistros);
 
-        btn_crearRegistrosDefinitivos.setText("Añadir Registro");
+        btn_crearRegistrosDefinitivos.setBackground(new java.awt.Color(255, 51, 0));
+        btn_crearRegistrosDefinitivos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_crearRegistrosDefinitivos.setForeground(new java.awt.Color(255, 255, 255));
+        btn_crearRegistrosDefinitivos.setText("Añadir");
+        btn_crearRegistrosDefinitivos.setBorder(null);
         btn_crearRegistrosDefinitivos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_crearRegistrosDefinitivosActionPerformed(evt);
             }
         });
 
+        btn_salirCrearRegistros.setBackground(new java.awt.Color(204, 204, 204));
+        btn_salirCrearRegistros.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_salirCrearRegistros.setText("Regresar");
+        btn_salirCrearRegistros.setBorder(null);
         btn_salirCrearRegistros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salirCrearRegistrosActionPerformed(evt);
             }
         });
 
+        JL_25.setForeground(new java.awt.Color(204, 204, 204));
+        JL_25.setText("_____________________________________________________________________________________________________________________________");
+
+        JL_26.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        JL_26.setText("Añadir Registro");
+
+        JL_27.setForeground(new java.awt.Color(204, 204, 204));
+        JL_27.setText("_____________________________________________________________________________________________________________________________");
+
+        JL_28.setForeground(new java.awt.Color(102, 102, 102));
+        JL_28.setText("Ingrese los datos dentro de la siguiente tabla ");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(btn_salirCrearRegistros)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_crearRegistrosDefinitivos))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addComponent(JL_26)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_salirCrearRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(btn_crearRegistrosDefinitivos, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                            .addGap(20, 20, 20)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(JL_28))))
+                    .addComponent(JL_25)
+                    .addComponent(JL_27))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addContainerGap()
+                .addComponent(JL_26)
+                .addGap(0, 0, 0)
+                .addComponent(JL_27)
+                .addGap(20, 20, 20)
+                .addComponent(JL_28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(JL_25)
+                .addGap(11, 11, 11)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_crearRegistrosDefinitivos)
-                    .addComponent(btn_salirCrearRegistros))
-                .addContainerGap(58, Short.MAX_VALUE))
+                    .addComponent(btn_crearRegistrosDefinitivos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_salirCrearRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11))
         );
 
         javax.swing.GroupLayout jD_crearRegistrosLayout = new javax.swing.GroupLayout(jD_crearRegistros.getContentPane());
@@ -875,17 +995,26 @@ public class Principal extends javax.swing.JFrame {
         );
         jD_crearRegistrosLayout.setVerticalGroup(
             jD_crearRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jPanel7.setBackground(new java.awt.Color(255, 204, 51));
+        jD_buscarRegistros.setTitle("Buscar Registro");
+        jD_buscarRegistros.setSize(new java.awt.Dimension(0, 0));
 
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+
+        btn_buscarlcdsm.setBackground(new java.awt.Color(255, 51, 0));
+        btn_buscarlcdsm.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_buscarlcdsm.setForeground(new java.awt.Color(255, 255, 255));
         btn_buscarlcdsm.setText("Buscar");
+        btn_buscarlcdsm.setBorder(null);
         btn_buscarlcdsm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_buscarlcdsmActionPerformed(evt);
             }
         });
+
+        jTf_buscarRegistros.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
 
         jTbl_buscarRegistros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -897,64 +1026,87 @@ public class Principal extends javax.swing.JFrame {
         ));
         jScrollPane4.setViewportView(jTbl_buscarRegistros);
 
-        btn_regresarRegistrosPrincipal.setText("Atras");
+        btn_regresarRegistrosPrincipal.setBackground(new java.awt.Color(204, 204, 204));
+        btn_regresarRegistrosPrincipal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_regresarRegistrosPrincipal.setText("Cancelar");
+        btn_regresarRegistrosPrincipal.setBorder(null);
         btn_regresarRegistrosPrincipal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_regresarRegistrosPrincipalMouseClicked(evt);
             }
         });
 
+        jCb_llavesBuscarregistros.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jCb_llavesBuscarregistros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
+        jCb_llavesBuscarregistros.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+
+        JL_29.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        JL_29.setText("Buscar Registro");
+
+        JL_30.setForeground(new java.awt.Color(204, 204, 204));
+        JL_30.setText("_____________________________________________________________________________________________________________________________");
+
+        JL_31.setForeground(new java.awt.Color(204, 204, 204));
+        JL_31.setText("_____________________________________________________________________________________________________________________________");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(JL_31)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_regresarRegistrosPrincipal))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
+                        .addGap(20, 20, 20)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jCb_llavesBuscarregistros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTf_buscarRegistros, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btn_buscarlcdsm)))))
-                .addGap(110, 110, 110))
+                            .addComponent(JL_29)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
+                                        .addComponent(jCb_llavesBuscarregistros, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTf_buscarRegistros)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btn_buscarlcdsm, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(20, 20, 20))))
+                    .addComponent(JL_30))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_regresarRegistrosPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_buscarlcdsm)
-                    .addComponent(jTf_buscarRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCb_llavesBuscarregistros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(JL_29)
+                .addGap(0, 0, 0)
+                .addComponent(JL_30)
                 .addGap(26, 26, 26)
-                .addComponent(btn_regresarRegistrosPrincipal)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jCb_llavesBuscarregistros, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(jTf_buscarRegistros, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_buscarlcdsm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JL_31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_regresarRegistrosPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11))
         );
 
         javax.swing.GroupLayout jD_buscarRegistrosLayout = new javax.swing.GroupLayout(jD_buscarRegistros.getContentPane());
         jD_buscarRegistros.getContentPane().setLayout(jD_buscarRegistrosLayout);
         jD_buscarRegistrosLayout.setHorizontalGroup(
             jD_buscarRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jD_buscarRegistrosLayout.createSequentialGroup()
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jD_buscarRegistrosLayout.setVerticalGroup(
             jD_buscarRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jD_buscarRegistrosLayout.createSequentialGroup()
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -1317,16 +1469,15 @@ public class Principal extends javax.swing.JFrame {
             } catch (Exception e) {
                 e.printStackTrace();
             } // Fin Try Catch
-        }else{
-            try {
-                archivo_actual = null;
-                campos_nuevos.clear();
-                VentanaMenuCampos.setVisible(false);
-                this.setVisible(true);
-            } catch (Exception e) {
-                System.out.println("cerrar archivo");
-                System.out.println(e.toString());
-            }
+        } // Fin If
+        try {
+            archivo_actual = null;
+            campos_nuevos.clear();
+            VentanaMenuCampos.setVisible(false);
+            this.setVisible(true);
+        } catch (Exception e) {
+            System.out.println("cerrar archivo");
+            System.out.println(e.toString());
         }//fin else añadir registros
     }//GEN-LAST:event_BTN_CerrarArchivoActionPerformed
 
@@ -2304,7 +2455,16 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel JL_22;
     private javax.swing.JLabel JL_23;
     private javax.swing.JLabel JL_24;
+    private javax.swing.JLabel JL_25;
+    private javax.swing.JLabel JL_26;
+    private javax.swing.JLabel JL_27;
+    private javax.swing.JLabel JL_28;
+    private javax.swing.JLabel JL_29;
     private javax.swing.JLabel JL_3;
+    private javax.swing.JLabel JL_30;
+    private javax.swing.JLabel JL_31;
+    private javax.swing.JLabel JL_32;
+    private javax.swing.JLabel JL_33;
     private javax.swing.JLabel JL_4;
     private javax.swing.JLabel JL_5;
     private javax.swing.JLabel JL_6;
@@ -2328,10 +2488,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_regresarRegistrosPrincipal;
     private javax.swing.JButton btn_salirCrearRegistros;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jCb_llavesBuscarregistros;
     private javax.swing.JDialog jD_Registros;
     private javax.swing.JDialog jD_buscarRegistros;
     private javax.swing.JDialog jD_crearRegistros;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jP_CrearCampo;
