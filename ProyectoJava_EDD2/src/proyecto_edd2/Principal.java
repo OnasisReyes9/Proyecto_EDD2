@@ -1182,7 +1182,7 @@ public class Principal extends javax.swing.JFrame {
                 } catch (Exception e) {
                     e.printStackTrace();
                 } // Fin Try Catch
-                salvado = false;
+                no_salvado = false;
                 this.setVisible(false);
                 VentanaMenuCampos.pack();
                 VentanaMenuCampos.setLocationRelativeTo(null);
@@ -1224,7 +1224,7 @@ public class Principal extends javax.swing.JFrame {
             secreo = false;
             semodifico = false;
             seborro = false;
-            salvado = false;
+            no_salvado = false;
         } catch (Exception e) {
             e.printStackTrace();
         } // Fin Try Catch
@@ -1232,31 +1232,62 @@ public class Principal extends javax.swing.JFrame {
 
     private void BTN_CerrarArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_CerrarArchivoActionPerformed
         // CIERRA EL ARCHIVO Y PREGUNTA SI SE DESEA GUARDAR O NO
-        try {
-            // ME FALTA PROBAR SI FUNCIONA CON LOS CRUDS
-            if (salvado == true) {
-                // El archivo aun no se guardado
-                if (JOptionPane.showConfirmDialog(null, "¿Desea salvar los cambios en el archivo?", "Confirmación", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                    // Actualiza el text area
-                    FileReader fr = null;
-                    BufferedReader br = null;
-                    fr = new FileReader(archivo_actual.getArchivo());
-                    br = new BufferedReader(fr);
-                    TA_ArchivoAbierto.setText("");
-                    String linea;
-                    while ((linea = br.readLine()) != null) {
-                        TA_ArchivoAbierto.append(linea);
-                    } // Fin While
-                    try {
-                        br.close();
-                        fr.close();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    } // Fin Try Catch
-                    // Actualiza el file dentro del archivo binario
-                    EscribirCamposBinario();
-                    JOptionPane.showMessageDialog(this, "¡Se ha guardado el archivo exitosamente!");
+        if (!registro_añadido) {
+            try {
+                // ME FALTA PROBAR SI FUNCIONA CON LOS CRUDS
+                if (no_salvado) {
+                    // El archivo aun no se guardado
+                    if (JOptionPane.showConfirmDialog(null, "¿Desea salvar los cambios en el archivo?", "Confirmación", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                        // Actualiza el text area
+                        FileReader fr = null;
+                        BufferedReader br = null;
+                        fr = new FileReader(archivo_actual.getArchivo());
+                        br = new BufferedReader(fr);
+                        TA_ArchivoAbierto.setText("");
+                        String linea;
+                        while ((linea = br.readLine()) != null) {
+                            TA_ArchivoAbierto.append(linea);
+                        } // Fin While
+                        try {
+                            br.close();
+                            fr.close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        } // Fin Try Catch
+                        // Actualiza el file dentro del archivo binario
+                        EscribirCamposBinario();
+                        JOptionPane.showMessageDialog(this, "¡Se ha guardado el archivo exitosamente!");
+                    } else {
+                        FileWriter fw = null;
+                        BufferedWriter bw = null;
+                        fw = new FileWriter(archivo_actual.getArchivo());
+                        bw = new BufferedWriter(fw);
+                        bw.write(TA_ArchivoAbierto.getText());
+                        TA_ArchivoAbierto.setText("");
+                        bw.flush();
+                        aa.cargarArchivo();
+                        for (Archivo archivo : aa.getLista_archivos()) {
+                            if (archivo.getID() == archivo_actual.getID()) {
+                                archivo.setArchivo(archivo_actual.getArchivo());
+                                /*  for (int i = 0; i < campos_nuevos.size(); i++) {
+                            archivo.addCampo(campos_nuevos.get(i));
+                        } // Fin For  */
+                                //campos_nuevos.clear();
+                                break;
+                            } // Fin If
+                        } // Fin For
+                        aa.escribirArchivo();
+                        try {
+                            bw.close();
+                            fw.close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        } // Fin Try Catch
+                    } // Fin If
                 } else {
+                    /*for (int i = 0; i < campos_nuevos.size(); i++) {
+                    archivo_actual.addCampo(campos_nuevos.get(i));
+                } // Fin For  */
                     FileWriter fw = null;
                     BufferedWriter bw = null;
                     fw = new FileWriter(archivo_actual.getArchivo());
@@ -1271,7 +1302,7 @@ public class Principal extends javax.swing.JFrame {
                             /*  for (int i = 0; i < campos_nuevos.size(); i++) {
                             archivo.addCampo(campos_nuevos.get(i));
                         } // Fin For  */
-                            //campos_nuevos.clear();
+                            // campos_nuevos.clear();
                             break;
                         } // Fin If
                     } // Fin For
@@ -1283,43 +1314,20 @@ public class Principal extends javax.swing.JFrame {
                         e.printStackTrace();
                     } // Fin Try Catch
                 } // Fin If
-            } else {
-                /*for (int i = 0; i < campos_nuevos.size(); i++) {
-                    archivo_actual.addCampo(campos_nuevos.get(i));
-                } // Fin For  */
-                FileWriter fw = null;
-                BufferedWriter bw = null;
-                fw = new FileWriter(archivo_actual.getArchivo());
-                bw = new BufferedWriter(fw);
-                bw.write(TA_ArchivoAbierto.getText());
-                TA_ArchivoAbierto.setText("");
-                bw.flush();
-                aa.cargarArchivo();
-                for (Archivo archivo : aa.getLista_archivos()) {
-                    if (archivo.getID() == archivo_actual.getID()) {
-                        archivo.setArchivo(archivo_actual.getArchivo());
-                        /*  for (int i = 0; i < campos_nuevos.size(); i++) {
-                            archivo.addCampo(campos_nuevos.get(i));
-                        } // Fin For  */
-                        // campos_nuevos.clear();
-                        break;
-                    } // Fin If
-                } // Fin For
-                aa.escribirArchivo();
-                try {
-                    bw.close();
-                    fw.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } // Fin Try Catch
-            } // Fin If
-            archivo_actual = null;
-            campos_nuevos.clear();
-            VentanaMenuCampos.setVisible(false);
-            this.setVisible(true);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } // Fin Try Catch
+            } catch (Exception e) {
+                e.printStackTrace();
+            } // Fin Try Catch
+        }else{
+            try {
+                archivo_actual = null;
+                campos_nuevos.clear();
+                VentanaMenuCampos.setVisible(false);
+                this.setVisible(true);
+            } catch (Exception e) {
+                System.out.println("cerrar archivo");
+                System.out.println(e.toString());
+            }
+        }//fin else añadir registros
     }//GEN-LAST:event_BTN_CerrarArchivoActionPerformed
 
     private void BTN_AbrirCrearCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_AbrirCrearCampoActionPerformed
@@ -1425,7 +1433,7 @@ public class Principal extends javax.swing.JFrame {
     private void BTN_CrearCampoDefinitivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_CrearCampoDefinitivoActionPerformed
         // SE CREA UN CAMPO DENTRO DEL ARCHIVO
         try {
-            salvado = true;
+            no_salvado = true;
             boolean existe = false;
             boolean llaveprimaria = false;
             String nombre = TF_NombreDelCampo.getText();
@@ -1507,7 +1515,7 @@ public class Principal extends javax.swing.JFrame {
             try {
                 boolean vacio_nombre = false;
                 boolean mostrar_mensaje = true;
-                salvado = true;
+                no_salvado = true;
                 boolean existe = false;
                 boolean llaveprimaria = false;
                 String nombre;
@@ -1677,7 +1685,7 @@ public class Principal extends javax.swing.JFrame {
         // SE BORRA UN CAMPO DENTRO DEL ARCHIVO
         if (CB_CampoABorrar.getSelectedIndex() > 0) {
             try {
-                salvado = true;
+                no_salvado = true;
                 for (int i = 0; i < campos_nuevos.size(); i++) {
                     if (campos_nuevos.get(i).getID() == campo_actual.getID()) {
                         campos_nuevos.remove(i);
@@ -1743,7 +1751,7 @@ public class Principal extends javax.swing.JFrame {
         boolean omitidos = false;
         if (sub_arboles == null) {
             sub_arboles = new ArrayList<BTree>();
-            for (int i = 0; i < archivo_actual.sizeCampos(); i++) { 
+            for (int i = 0; i < archivo_actual.sizeCampos(); i++) {
                 sub_arboles.add(null);
             }//fin for i
             sub_arboles.set(archivo_actual.ubicacion_llavePrimaria(0, -1), new BTree(6));
@@ -1774,7 +1782,7 @@ public class Principal extends javax.swing.JFrame {
         if (omitidos) {
             message = "Algunos registros fueron omitidos porque ya habia un registro con la misma llave primaria almacenado en el archvo.";
         } else {
-            salvado = false;
+            registro_añadido = true;
             message = "Guardado Exitoso";
         }
         JOptionPane.showMessageDialog(null, message);
@@ -2349,7 +2357,10 @@ public class Principal extends javax.swing.JFrame {
     ArrayList<Campo> campos_nuevos = new ArrayList();
     ArrayList<Campo> campos_guardados = new ArrayList();
     Administrar_Archivos aa = new Administrar_Archivos("./Archivos.dmo");
-    private boolean salvado = false;
+
+    private boolean no_salvado = false;
+    private boolean registro_añadido = false;
+
     private boolean semodifico = false;
     private boolean secreo = false;
     private boolean seborro = false;
