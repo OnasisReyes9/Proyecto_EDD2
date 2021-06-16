@@ -2060,7 +2060,6 @@ public class Principal extends javax.swing.JFrame {
                         break;
                     }
                 }
-
                 if (archivo_actual.getCampos().get(pk).getTipo_de_dato() == 0) {
                     int num = archivo_actual.getCampos().get(pk).getLongitud() - llave.length();
                     llave = espacios.substring(0, num) + llave;
@@ -2071,13 +2070,11 @@ public class Principal extends javax.swing.JFrame {
                 System.out.println("esta es la llave que se envia" + llave);
                 lista_rrn_buscar = new ArrayList<Long>();
                 arbol_actual.searchByAffinity(arbol_actual.getRaiz(), llave, lista_rrn_buscar);//searchbyaffinity lo que hace es devolver el rrn de la llave que buscamos
-
                 if (lista_rrn_buscar.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "No se encontro ningun registro con ese valor");
+                    JOptionPane.showMessageDialog(this, "No se encontro ningun registro con ese valor");
                     jTf_buscarRegistros.setText("");
                     return;
                 }
-                System.out.println("");
                 System.out.println("");
                 System.out.println("");
                 System.out.println("Lista rrn buscar");
@@ -2213,14 +2210,28 @@ public class Principal extends javax.swing.JFrame {
         }
         return true;
     }
+    int acumregistro = 0;
 
     private int getRrn() {
+        /* if (archivo_actual.getAvailist().isEmpty()) {
+            acumregistro++;
+            return (85 * acumregistro);
+        }
+        return (int) archivo_actual.getAvailist().peekFirst();*/
         if (archivo_actual.getAvailist().isEmpty()) {
             return (int) ((new File(path_archivo_actual).length()
                     - archivo_actual.sizeMetadata(espacios)) / archivo_actual.recordSize());
         }
         return (int) archivo_actual.getAvailist().peekFirst();//*/
-       /* FileReader fr = null;
+    }
+
+    /*  private int getRrn() {
+        if (archivo_actual.getAvailist().isEmpty()) {
+            return (int) ((new File(path_archivo_actual).length()
+                    - archivo_actual.sizeMetadata(espacios)) / archivo_actual.recordSize());
+        }
+        return (int) archivo_actual.getAvailist().peekFirst();//*/
+ /* FileReader fr = null;
         BufferedReader br = null;
         String metadata_info = "";
         try {
@@ -2234,9 +2245,8 @@ public class Principal extends javax.swing.JFrame {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-    }
-
+        }
+}*/
     int guardarRegistro(String registro) {
         //int rrn = 0;
         int rrn = getRrn();
