@@ -23,6 +23,8 @@ import java.util.logging.Logger;
 public class Archivo implements Serializable {
 
     private File archivo;
+    private int cant_regisros;
+    String nombre;
     private int ID;
     private ArrayList<Campo> campos = new ArrayList();
     private LinkedList availist = new LinkedList();
@@ -34,6 +36,7 @@ public class Archivo implements Serializable {
     public Archivo(File archivo, int ID) {
         this.archivo = archivo;
         this.ID = ID;
+         cant_regisros=0;
     } // Fin Constructor Archivo
 
     public int getID() {
@@ -136,7 +139,28 @@ public class Archivo implements Serializable {
         }
         //return metadata.length() + 1 + 6;//mas uno por \n(confirmado por fuentes confiables)
         return metadata.length() + 1;//mas uno por \n(confirmado por fuentes confiables)
-    }*/
+    }//*/
+    
+     public int getSizeMetadata() {
+        String metadata = nombre;
+
+        for (Campo campo : this.getCampos()) {
+            metadata += "|"
+                    + campo.getNombre()
+                    + ":"
+                    + campo.getTipo_de_dato()
+                    + ":"
+                    + campo.getLongitud()
+                    + ":";
+
+            if (campo.isLlavePrimaria()) {
+                metadata += "Si";
+            } else {
+                metadata += "No";
+            }
+        }
+        return metadata.length()+1;//mas uno por \n(confirmado por fuentes confiables)          
+    }
     
     public LinkedList getAvailist() {
         return availist;
@@ -146,4 +170,12 @@ public class Archivo implements Serializable {
         this.availist = availist;
     }
 
+    public int getCant_regisros() {
+        return cant_regisros;
+    }
+
+    public void setCant_regisros() {
+        this.cant_regisros++;
+    }
+    
 } // Fin Clase Archivo
