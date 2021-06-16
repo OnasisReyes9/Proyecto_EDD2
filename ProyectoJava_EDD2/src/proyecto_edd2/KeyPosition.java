@@ -5,17 +5,23 @@
  */
 package proyecto_edd2;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Monica
  */
-public class KeyPosition {
+public class KeyPosition implements Serializable{
     private String llave;
     private long pos;
+    //private byte byte_pos;
+    
+    private static final long SerialVersionUID = 77777L;
 
     public KeyPosition(String llave, long pos) {
         this.llave = llave;
         this.pos = pos;
+        //this.byte_pos = byte_pos;
     } // Fin Constructor Key Position
 
     public String getLlave() {

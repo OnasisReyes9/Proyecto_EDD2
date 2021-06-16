@@ -5,14 +5,17 @@
  */
 package proyecto_edd2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Monica
  */
-public class Node {
+public class Node implements Serializable{
 
+    private static final long SerialVersionUID = 7777L;
+    
     ArrayList<KeyPosition> llaves;
     ArrayList<Integer> hijos;
     int num_llaves;

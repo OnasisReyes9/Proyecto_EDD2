@@ -105,7 +105,7 @@ public class Archivo implements Serializable {
             fr = new FileReader(path);
             br = new BufferedReader(fr);
             int cont = 0;
-            while (br.readLine() != null && cont == 0) {
+            while (br.readLine() != null /*&& cont == 0*/) {
                 metadata = br.readLine();
                 cont++;
             }//fin while
@@ -117,6 +117,27 @@ public class Archivo implements Serializable {
         return metadata.length() + 1;
     }
 
+    /*public int getSizeMetadata() {
+        String metadata = archivo.getName();
+        for (Campo campo : this.getCampos()) {
+            metadata += "|"
+                    + campo.getNombre()
+                    + ":"
+                    + campo.getTipo_de_dato()
+                    + ":"
+                    + campo.getLongitud()
+                    + ":";
+
+            if (campo.isLlavePrimaria()) {
+                metadata += "Si";
+            } else {
+                metadata += "No";
+            }
+        }
+        //return metadata.length() + 1 + 6;//mas uno por \n(confirmado por fuentes confiables)
+        return metadata.length() + 1;//mas uno por \n(confirmado por fuentes confiables)
+    }*/
+    
     public LinkedList getAvailist() {
         return availist;
     }

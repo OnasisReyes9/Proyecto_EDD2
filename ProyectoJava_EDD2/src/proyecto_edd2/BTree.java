@@ -162,19 +162,16 @@ public class BTree implements Serializable {
     }
     //search by affinity agrega el rrn deseado de la llave encontradas
      public void searchByAffinity(int ix, String k, ArrayList<Long> rrns) {
-
         int i = 0;
         Node x = nodos.get((int) ix);
-
         while (i < x.getNum_llaves()&& k.compareTo(x.getLlaves().get(i).getLlave()) > 0) {
             i++;
         }
-
         boolean flag = false;
-
         while (i < x.getNum_llaves()&& k.compareTo(x.getLlaves().get(i).getLlave()) == 0) {
             flag = true;
             rrns.add(x.getLlaves().get(i).getPos());
+            System.out.println(x.getLlaves().get(i).toString());
             if (!x.isHoja()) {
                 searchByAffinity(x.getHijos().get(i), k, rrns);
             }
